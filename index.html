@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GD Friend Ranking (Made For Fun)</title>
+    <style>
+        body {
+            background: #0e0e0e;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        ol {
+            max-width: 400px;
+            margin: auto;
+            font-size: 18px;
+        }
+
+        li {
+            margin: 10px 0;
+            background: #1c1c1c;
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .points {
+            color: #00ff88;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Leaderboard</h1>
+
+<ol id="list"></ol>
+
+<script>
+    // 🔒 ONLY YOU EDIT THIS PART 🔒
+    const users = [
+        { name: "HaloPlaceVR", points: 110 },
+        { name: "William", points: 80 },
+        { name: "Halloween", points: 90 },
+        { name: "Memex", points: 50 }
+        { name: "Barrel", points: 0 }
+    ];
+
+    const list = document.getElementById("list");
+
+    users.forEach(user => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+            <span>${user.name}</span>
+            <span class="points">${user.points} pts</span>
+        `;
+        list.appendChild(li);
+    });
+</script>
+
+</body>
+</html>
