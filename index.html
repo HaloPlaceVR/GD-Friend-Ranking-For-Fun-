@@ -30,11 +30,18 @@
             border-radius: 8px;
             display: flex;
             justify-content: space-between;
+            align-items: center;
         }
 
         .points {
             color: #00ff88;
             font-weight: bold;
+        }
+
+        .rank {
+            color: #ffaa00;
+            font-weight: bold;
+            margin-right: 8px;
         }
     </style>
 </head>
@@ -46,12 +53,13 @@
 <ol id="list"></ol>
 
 <script>
+    // 🔒 ONLY EDIT THIS LIST 🔒
     const users = [
-        { name: "HaloPlaceVR", points: 110 },
-        { name: "William", points: 80 },
-        { name: "Halloween", points: 90 },
-        { name: "Memex", points: 50 },
-        { name: "Barrel", points: 0 }
+        { rank: 1, name: "HaloPlaceVR", points: 110 },
+        { rank: 2, name: "Halloween", points: 90 },
+        { rank: 3, name: "William", points: 80 },
+        { rank: 4, name: "Memex", points: 50 },
+        { rank: 5, name: "Barrel", points: 0 }
     ];
 
     const list = document.getElementById("list");
@@ -59,7 +67,7 @@
     users.forEach(user => {
         const li = document.createElement("li");
         li.innerHTML = `
-            <span>${user.name}</span>
+            <span><span class="rank">#${user.rank}</span>${user.name}</span>
             <span class="points">${user.points} pts</span>
         `;
         list.appendChild(li);
