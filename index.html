@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>GD Friend Ranking (Made For Fun)</title>
+    <title>Leaderboard</title>
+
     <style>
         body {
             background: #0e0e0e;
@@ -13,18 +14,19 @@
 
         h1 {
             text-align: center;
+            margin-bottom: 30px;
         }
 
         ol {
-            max-width: 400px;
+            max-width: 500px;
             margin: auto;
-            font-size: 18px;
+            padding-left: 20px;
         }
 
         li {
             margin: 10px 0;
             background: #1c1c1c;
-            padding: 10px;
+            padding: 12px;
             border-radius: 8px;
             display: flex;
             justify-content: space-between;
@@ -36,6 +38,7 @@
         }
     </style>
 </head>
+
 <body>
 
 <h1>Leaderboard</h1>
@@ -43,12 +46,11 @@
 <ol id="list"></ol>
 
 <script>
-    // 🔒 ONLY YOU EDIT THIS PART 🔒
     const users = [
         { name: "HaloPlaceVR", points: 110 },
         { name: "William", points: 80 },
         { name: "Halloween", points: 90 },
-        { name: "Memex", points: 50 }
+        { name: "Memex", points: 50 },
         { name: "Barrel", points: 0 }
     ];
 
