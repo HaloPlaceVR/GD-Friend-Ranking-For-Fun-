@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Leaderboard</title>
+    <title>GD Friend Ranking Leaderboard</title>
 
     <style>
         body {
@@ -43,6 +43,25 @@
             font-weight: bold;
             margin-right: 8px;
         }
+
+        .legend {
+            max-width: 500px;
+            margin: 40px auto 0;
+            background: #151515;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .legend h2 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .legend p {
+            margin: 4px 0;
+        }
     </style>
 </head>
 
@@ -51,6 +70,15 @@
 <h1>Leaderboard</h1>
 
 <ol id="list"></ol>
+
+<div class="legend">
+    <h2>Difficulty Points</h2>
+    <p>Extreme Demon = 50+</p>
+    <p>Insane Demon = 40+</p>
+    <p>Hard Demon = 30+</p>
+    <p>Medium Demon = 20+</p>
+    <p>Easy Demon = 10+</p>
+</div>
 
 <script>
     // 🔒 ONLY EDIT THIS LIST 🔒
