@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>GD Friend Ranking (Made For Fun)</title>
+    <title>GD Friend Ranking Leaderboard</title>
 
     <style>
         body {
@@ -14,18 +14,19 @@
 
         h1 {
             text-align: center;
+            margin-bottom: 30px;
         }
 
         ol {
-            max-width: 400px;
+            max-width: 500px;
             margin: auto;
-            font-size: 18px;
+            padding-left: 20px;
         }
 
         li {
             margin: 10px 0;
             background: #1c1c1c;
-            padding: 10px;
+            padding: 12px;
             border-radius: 8px;
             cursor: pointer;
         }
@@ -33,6 +34,7 @@
         .row {
             display: flex;
             justify-content: space-between;
+            align-items: center;
         }
 
         .points {
@@ -40,77 +42,87 @@
             font-weight: bold;
         }
 
+        .rank {
+            color: #ffaa00;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
         .details {
-            margin-top: 8px;
+            margin-top: 10px;
             font-size: 14px;
             color: #ccc;
             display: none;
         }
+
+        .legend {
+            max-width: 500px;
+            margin: 40px auto 0;
+            background: #151515;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .legend h2 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .legend p {
+            margin: 4px 0;
+        }
     </style>
 </head>
+
 <body>
 
-<h1>Leaderboard</h1>
+<h1>GD Friend Rank Leaderboard</h1>
 
 <ol id="list"></ol>
 
+<div class="legend">
+    <h2>Difficulty Points</h2>
+    <p>Extreme Demon = 50+</p>
+    <p>Insane Demon = 40+</p>
+    <p>Hard Demon = 30+</p>
+    <p>Medium Demon = 20+</p>
+    <p>Easy Demon = 10+</p>
+</div>
+
 <script>
-    // 🔒 ONLY YOU EDIT THIS PART 🔒
+    // 🔒 ONLY EDIT THIS LIST 🔒
     const users = [
         {
+            rank: 1,
             name: "HaloPlaceVR",
             points: 110,
-            demons: {
-                extreme: 0,
-                insane: 0,
-                hard: 0,
-                medium: 1,
-                easy: 10
-            }
+            demons: { extreme: 0, insane: 0, hard: 0, medium: 1, easy: 10 }
         },
         {
+            rank: 2,
             name: "Halloween",
             points: 90,
-            demons: {
-                extreme: 1,
-                insane: 2,
-                hard: 1,
-                medium: 2,
-                easy: 1
-            }
+            demons: { extreme: 0, insane: 0, hard: 0, medium: 1, easy: 7 }
         },
         {
-            name: "William",
+            rank: 3,
+            name: "(Still Getting Points) William",
             points: 80,
-            demons: {
-                extreme: 1 "Being Verified",
-                insane: 0,
-                hard: 0,
-                medium: 0,
-                easy: 3
-            }
+            demons: { extreme: 1 "Getting Verified", insane: 0, hard: 0, medium: 0, easy: 3 }
         },
         {
+            rank: 4,
             name: "Memex",
             points: 50,
-            demons: {
-                extreme: 0,
-                insane: 0,
-                hard: 0,
-                medium: 0,
-                easy: 5
-            }
+            demons: { extreme: 0, insane: 0, hard: 0, medium: 0, easy: 5 }
         },
         {
+            rank: 5,
             name: "Barrel",
             points: 0,
-            demons: {
-                extreme: 0,
-                insane: 0,
-                hard: 0,
-                medium: 0,
-                easy: 0
-            }
+            demons: { extreme: 0, insane: 0, hard: 0, medium: 0, easy: 0 }
         }
     ];
 
@@ -121,7 +133,7 @@
 
         li.innerHTML = `
             <div class="row">
-                <span>${user.name}</span>
+                <span><span class="rank">#${user.rank}</span>${user.name}</span>
                 <span class="points">${user.points} pts</span>
             </div>
             <div class="details">
