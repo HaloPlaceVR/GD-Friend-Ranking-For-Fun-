@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>GD Friend Ranking Leaderboard</title>
+    <title>GD Friend Ranking (Made For Fun)</title>
 
     <style>
         body {
@@ -14,19 +14,18 @@
 
         h1 {
             text-align: center;
-            margin-bottom: 30px;
         }
 
         ol {
-            max-width: 500px;
+            max-width: 400px;
             margin: auto;
-            padding-left: 20px;
+            font-size: 18px;
         }
 
         li {
             margin: 10px 0;
             background: #1c1c1c;
-            padding: 12px;
+            padding: 10px;
             border-radius: 8px;
             cursor: pointer;
         }
@@ -37,103 +36,108 @@
             align-items: center;
         }
 
+        .rank {
+            color: #ffaa00;
+            font-weight: bold;
+            margin-right: 6px;
+        }
+
         .points {
             color: #00ff88;
             font-weight: bold;
         }
 
-        .rank {
-            color: #ffaa00;
-            font-weight: bold;
-            margin-right: 8px;
-        }
-
         .details {
-            margin-top: 10px;
+            margin-top: 8px;
             font-size: 14px;
             color: #ccc;
             display: none;
         }
 
-        .legend {
-            max-width: 500px;
-            margin: 40px auto 0;
-            background: #151515;
-            padding: 15px;
-            border-radius: 8px;
-            font-size: 14px;
-        }
-
-        .legend h2 {
-            text-align: center;
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-
-        .legend p {
-            margin: 4px 0;
+        .note {
+            color: #ffaa00;
+            font-style: italic;
         }
     </style>
 </head>
-
 <body>
 
-<h1>GD Friend Rank Leaderboard</h1>
+<h1>Leaderboard</h1>
 
 <ol id="list"></ol>
 
-<div class="legend">
-    <h2>Difficulty Points</h2>
-    <p>Extreme Demon = 50+</p>
-    <p>Insane Demon = 40+</p>
-    <p>Hard Demon = 30+</p>
-    <p>Medium Demon = 20+</p>
-    <p>Easy Demon = 10+</p>
-</div>
-
 <script>
-    // 🔒 ONLY EDIT THIS LIST 🔒
+    // 🔒 ONLY YOU EDIT THIS PART 🔒
     const users = [
         {
-            rank: 1,
             name: "HaloPlaceVR",
             points: 110,
-            demons: { extreme: 0, insane: 0, hard: 0, medium: 1, easy: 10 }
+            demons: {
+                extreme: 0,
+                insane: 0,
+                hard: 0,
+                medium: 1,
+                easy: 10
+            }
         },
         {
-            rank: 2,
             name: "Halloween",
             points: 90,
-            demons: { extreme: 0, insane: 0, hard: 0, medium: 1, easy: 7 }
+            demons: {
+                extreme: 1,
+                insane: 2,
+                hard: 1,
+                medium: 2,
+                easy: 1
+            }
         },
         {
-            rank: 3,
-            name: "(Still Getting Points) William",
+            name: "William",
             points: 80,
-            demons: { extreme: 1 "Getting Verified", insane: 0, hard: 0, medium: 0, easy: 3 }
+            demons: {
+                extreme: 1,
+                insane: 0,
+                hard: 0,
+                medium: 0,
+                easy: 3
+            },
+            note: "Extreme Demon being verified"
         },
         {
-            rank: 4,
             name: "Memex",
             points: 50,
-            demons: { extreme: 0, insane: 0, hard: 0, medium: 0, easy: 5 }
+            demons: {
+                extreme: 0,
+                insane: 0,
+                hard: 0,
+                medium: 0,
+                easy: 5
+            }
         },
         {
-            rank: 5,
             name: "Barrel",
             points: 0,
-            demons: { extreme: 0, insane: 0, hard: 0, medium: 0, easy: 0 }
+            demons: {
+                extreme: 0,
+                insane: 0,
+                hard: 0,
+                medium: 0,
+                easy: 0
+            }
         }
     ];
 
+    // Sort by points (highest first)
+    users.sort((a, b) => b.points - a.points);
+
     const list = document.getElementById("list");
 
-    users.forEach(user => {
+    users.forEach((user, index) => {
         const li = document.createElement("li");
 
         li.innerHTML = `
             <div class="row">
-                <span><span class="rank">#${user.rank}</span>${user.name}</span>
+                <span><span class="rank">#${index + 1}</span>${user.name}</span>
                 <span class="points">${user.points} pts</span>
             </div>
             <div class="details">
@@ -142,15 +146,16 @@
                 Hard Demons: ${user.demons.hard}<br>
                 Medium Demons: ${user.demons.medium}<br>
                 Easy Demons: ${user.demons.easy}
+                ${user.note ? `<br><span class="note">${user.note}</span>` : ""}
             </div>
         `;
 
         const details = li.querySelector(".details");
 
-        li.addEventListener("click", () => {
+        li.onclick = () => {
             details.style.display =
                 details.style.display === "block" ? "none" : "block";
-        });
+        };
 
         list.appendChild(li);
     });
